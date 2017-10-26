@@ -1,0 +1,49 @@
+body{
+  background-color: #FEFFEF;
+}
+
+.topmenu{
+  /*background-color: lightblue;*/
+  /*background: linear-gradient(315deg, transparent 10px, #c00 0) bottom right,
+		          linear-gradient(45deg,  transparent 10px, #c00 0) bottom left;
+  background-size: 50% 100%;
+	background-repeat: no-repeat;
+  http://lea.verou.me/2011/03/beveled-corners-negative-border-radius-with-css3-gradients/*/
+  border-bottom: thick solid #F5DEB3;
+}
+.topmenu li a{
+  color: black;
+}
+.topmenu li a:hover{
+  color: black;
+}
+.leftw{
+  /*background-color: lightgreen;*/
+}
+.main{
+  /*background-color: lightblue;*/
+}
+.rightw{
+  /*background-color: lightpink;*/
+}
+
+.title{
+  border-bottom: thick solid #F5DEB3;
+}
+
+
+.color-primary-0 { background-color: #FEFFEF }
+.color-primary-1 { background-color: #FCF6CF }
+.color-primary-2 { background-color: #FEF0C9; color: black;}
+.color-primary-3 { background-color: #F5DEB3 }
+.color-primary-4 { background-color: #515050 }
+
+
+.color-primary-hover-0:hover { background-color: #FCF6CF }
+.color-primary-hover-1:hover { background-color: #FEFFEF }
+.color-primary-hover-2:hover { background-color: #FEF0C9 color: black;}
+.color-primary-hover-3:hover { background-color: #F5DEB3 }
+.color-primary-hover-4:hover { background-color: #515050 }
+footer{
+  /*background-color: darkgrey;*/
+}
