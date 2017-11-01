@@ -1,5 +1,10 @@
 <?php
-require "config.php";
+if (file_exists("config.php")) {
+    require "config.php";
+}
+else {
+    header("Location: ./install.php");
+}
 include_once './dibi/loader.php';
 /**
  *
@@ -81,7 +86,6 @@ class Builder
 
   public function repo_container($api_result)
   {
-    $now = new DateTime();
 
     if (isset($api_result["data"]["user"])) {
       $rows = count($api_result["data"]["user"]["repositories"]["nodes"]);
@@ -135,17 +139,18 @@ class Builder
   {
     $rows = count($history);
     $pages = ceil($rows/$step);
-    if($pages <= 1) return;
-    echo "<div class=\"container\">";
-    for ($i=0; $i < $pages; $i++) {
-      if ($i == $actual) {
-        echo "<a href='?p=" . $i . "'><strong>" . ($i + 1) . "</strong></a> \n";
-      } else {
-        echo "<a href='?p=" . $i . "'>" . ($i + 1) . "</a> \n";
+    if($pages >= 1){
+      echo "<div class=\"container\">";
+      for ($i=0; $i < $pages; $i++) {
+        if ($i == $actual) {
+          echo "<a href='?p=" . $i . "'><strong>" . ($i + 1) . "</strong></a> \n";
+        } else {
+          echo "<a href='?p=" . $i . "'>" . ($i + 1) . "</a> \n";
+        }
       }
+      echo "<a href='history_delete.php'>Delete history</a>";
+      echo "</div>";
     }
-    echo "<a href='history_delete.php'>Delete history</a>";
-    echo "</div>";
   }
 
   public function history_delete_form($deleted=0)

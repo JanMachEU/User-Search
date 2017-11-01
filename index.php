@@ -1,6 +1,11 @@
 <?php
 session_start();
-require "config.php";
+if (file_exists("config.php")) {
+    require "config.php";
+}
+else {
+    header("Location: ./install.php");
+}
 require_once "Builder.php";
 require_once "./dibi/loader.php";
 
@@ -60,7 +65,7 @@ $variables ="
   curl_setopt($curl, CURLOPT_URL, "https://api.github.com/graphql");
   curl_setopt($curl, CURLOPT_HEADER, false);
   curl_setopt($curl, CURLOPT_USERAGENT, "GUS");
-  curl_setopt($curl, CURLOPT_HTTPHEADER, array("Accept: application/json", "Authorization: bearer ".$_SESSION["api_token"]));
+  curl_setopt($curl, CURLOPT_HTTPHEADER, array("Accept: application/json", "Authorization: bearer ".$api_token));
   curl_setopt($curl, CURLOPT_POST, 1);
   curl_setopt($curl, CURLOPT_POSTFIELDS, $json);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
