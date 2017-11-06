@@ -116,7 +116,7 @@ if ($step == 2) { // Creates config file, sets up permissions for files
     $fc .= "\"driver\"   => \"mysqli\",\n";
     $fc .= "\"host\"     => \"" . $_SESSION["db_host"] . "\",\n";
     $fc .= "\"username\" => \"" . $_SESSION["db_username"] . "\",\n";
-    if ($_SESSION["db_password"] == "") $fc .= "\"password\" => \"" . $_SESSION["db_password"] . "\",\n";
+    if ($_SESSION["db_password"] !== "") $fc .= "\"password\" => \"" . $_SESSION["db_password"] . "\",\n";
     $fc .= "\"database\" => \"" . $_SESSION["db_database"] . "\",\n";
   $fc .= "];\n";
   $fc .= "?>\n";
