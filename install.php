@@ -131,23 +131,26 @@ if ($step == 2) { // Creates config file, sets up permissions for files
   // Changing file permissions
   $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator("."));
   echo "Setting up permissions.<br>\n";
+  chmod("./css", 0755);
+  chmod("./dibi", 0755);
+  chmod("./fonts", 0755);
   foreach($iterator as $file) {
       if (substr($file, -1) != ".") {
         if (substr($file, -4) == ".php") {
           chmod($file, 0640);
-          echo "Permissions for <strong>'" . $file . "'</strong> set to <strong>" . decoct(fileperms($file) & 0777) . "</strong>\n<br>";
+          // echo "Permissions for <strong>'" . $file . "'</strong> set to <strong>" . decoct(fileperms($file) & 0777) . "</strong>\n<br>";
         }
         if (substr($file, -4) == ".css" || substr($file, -4) == ".min") {
           chmod($file, 0755);
-          echo "Permissions for <strong>'" . $file . "'</strong> set to <strong>" . decoct(fileperms($file) & 0777) . "</strong>\n<br>";
+          // echo "Permissions for <strong>'" . $file . "'</strong> set to <strong>" . decoct(fileperms($file) & 0777) . "</strong>\n<br>";
         }
         if (substr($file, -4) == ".otf" || substr($file, -4) == ".eot" || substr($file, -4) == ".svg") {
           chmod($file, 0755);
-          echo "Permissions for <strong>'" . $file . "'</strong> set to <strong>" . decoct(fileperms($file) & 0777) . "</strong>\n<br>";
+          // echo "Permissions for <strong>'" . $file . "'</strong> set to <strong>" . decoct(fileperms($file) & 0777) . "</strong>\n<br>";
         }
-        if (substr($file, -4) == ".ttf" || substr($file, -4) == ".woff" || substr($file, -4) == ".woff2") {
+        if (substr($file, -4) == ".ttf" || substr($file, -5) == ".woff" || substr($file, -6) == ".woff2") {
           chmod($file, 0755);
-          echo "Permissions for <strong>'" . $file . "'</strong> set to <strong>" . decoct(fileperms($file) & 0777) . "</strong>\n<br>";
+          // echo "Permissions for <strong>'" . $file . "'</strong> set to <strong>" . decoct(fileperms($file) & 0777) . "</strong>\n<br>";
         }
       }
   }
