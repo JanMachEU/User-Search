@@ -66,6 +66,7 @@ if ($step == 0) {
 }
 if ($step == 1) {
   // Prints overview of inserted data for check.
+  echo "<h1>Step 1 / 3</h1>";
   echo "<div>";
     echo "<h3>Please check this</h3>";
     echo "<p>GitHub API Token: ";
@@ -86,6 +87,7 @@ if ($step == 1) {
   echo "</div>";
 }
 if ($step == 2) { // Creates config file, sets up permissions for files
+  echo "<h1>Step 2 / 3</h1>";
   if (!isset($_SESSION["api_token"]) || $_SESSION["api_token"] == "") {
     die("ERROR: Please set API token. <a href='?step=0'>Edit</a>");
   }
@@ -152,6 +154,7 @@ if ($step == 2) { // Creates config file, sets up permissions for files
 }
 if ($step == 3) {
   // Creates database
+  echo "<h1>Step 3 / 3</h1>";
   require "./config.php";
   $db = new DibiConnection($options);
   $result = $db->query("CREATE TABLE IF NOT EXISTS `history` (
