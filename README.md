@@ -24,5 +24,11 @@
   1. Open `ADDRESS_BASED_ON_WHERE_YOU_EXTRACTED_IT/install.php` in browser
   1. Follow the steps in installer
   
+## Permissions
+  Please check that files in folders (and folders themselves) have the right permissions set.
+  - Folder `css` and everything in it - `0755`
+  - Folder `fonts` and everything in it - `0755`
+  - All `.php` files - `0640`
+
 ## External libraries
   - [Dibi](https://github.com/dg/dibi)
