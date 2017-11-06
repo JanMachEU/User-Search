@@ -1,7 +1,7 @@
 <?php
 session_start();
-require "config.php";
-require_once "Builder.php";
+require "./config.php";
+require_once "./Builder.php";
 require_once "./dibi/loader.php";
 
 $build = new Builder();

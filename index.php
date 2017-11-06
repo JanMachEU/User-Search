@@ -1,12 +1,12 @@
 <?php
 session_start();
-if (file_exists("config.php")) {
-    require "config.php";
+if (file_exists("./config.php")) {
+    require "./config.php";
 }
 else {
     header("Location: ./install.php");
 }
-require_once "Builder.php";
+require_once "./Builder.php";
 require_once "./dibi/loader.php";
 
 $build = new Builder();
