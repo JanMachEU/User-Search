@@ -21,35 +21,43 @@ if (isset($_POST["username"]) && $_POST["username"] !== "" && $build->isValid($_
   $username = $_POST["username"];
   $query = <<<JSON
   query(\$login:String!) {
-    user(login: \$login) {
-      login
-      name
-      bioHTML
-      avatarUrl
-      repositories(last: 100) {
-        nodes {
-          name
-          description
-          updatedAt
-          stargazers{totalCount}
-        }
-      }
-    }
-    organization(login: \$login) {
-      login
-      name
-      description
-      avatarUrl
-      repositories(last: 100) {
-        nodes {
-          name
-          description
-          updatedAt
-          stargazers{totalCount}
-        }
+  user(login: \$login) {
+    login
+    name
+    bioHTML
+    avatarUrl
+    repositories(last: 100) {
+      nodes {
+        name
+        descriptionHTML
+        updatedAt
+        createdAt
+        url
+        watchers{totalCount}
+        forks{totalCount}
+        stargazers{totalCount}
       }
     }
   }
+  organization(login: \$login) {
+    login
+    name
+    avatarUrl
+    description
+    repositories(last: 100) {
+      nodes {
+        name
+        descriptionHTML
+        updatedAt
+        createdAt
+        url
+        watchers{totalCount}
+        forks{totalCount}
+        stargazers{totalCount}
+      }
+    }
+  }
+}
 JSON;
 
 $variables ="

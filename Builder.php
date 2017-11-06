@@ -93,8 +93,10 @@ class Builder
       for ($i=($rows-1); $i >= 0; $i--) {
         echo "<div>";
           echo "<a href=\"https://github.com/" . $api_result["data"]["user"]["login"] . "/" . $api_result["data"]["user"]["repositories"]["nodes"][$i]["name"] . "\"><h4>" . $api_result["data"]["user"]["repositories"]["nodes"][$i]["name"] . "</h4></a> ";
-          echo "<span><i class=\"fa fa-star\" aria-hidden=\"true\"></i>" . $api_result["data"]["user"]["repositories"]["nodes"][$i]["stargazers"]["totalCount"] . "</span>";
-          echo "<p>" . $api_result["data"]["user"]["repositories"]["nodes"][$i]["description"] . "</p>";
+          echo "<span><i class=\"fa fa-eye\" aria-hidden=\"true\"></i>" . $api_result["data"]["user"]["repositories"]["nodes"][$i]["watchers"]["totalCount"] . "</span> ";
+          echo "<span><i class=\"fa fa-star\" aria-hidden=\"true\"></i>" . $api_result["data"]["user"]["repositories"]["nodes"][$i]["stargazers"]["totalCount"] . "</span> ";
+          echo "<span><i class=\"fa fa-code-fork\" aria-hidden=\"true\"></i>" . $api_result["data"]["user"]["repositories"]["nodes"][$i]["forks"]["totalCount"] . "</span> ";
+          echo "<p>" . $api_result["data"]["user"]["repositories"]["nodes"][$i]["descriptionHTML"] . "</p>";
         echo "</div><hr>";
       }
       echo "</div>";
@@ -104,7 +106,9 @@ class Builder
       for ($i=($rows-1); $i >= 0; $i--) {
         echo "<div>";
           echo "<a href=\"https://github.com/" . $api_result["data"]["organization"]["login"] . "/" . $api_result["data"]["organization"]["repositories"]["nodes"][$i]["name"] . "\"><h4>" . $api_result["data"]["organization"]["repositories"]["nodes"][$i]["name"] . "</h4></a> ";
-          echo "<span><i class=\"fa fa-star\" aria-hidden=\"true\"></i>" . $api_result["data"]["organization"]["repositories"]["nodes"][$i]["stargazers"]["totalCount"] . "</span>";
+          echo "<span><i class=\"fa fa-eye\" aria-hidden=\"true\"></i>" . $api_result["data"]["organization"]["repositories"]["nodes"][$i]["watchers"]["totalCount"] . "</span> ";
+          echo "<span><i class=\"fa fa-star\" aria-hidden=\"true\"></i>" . $api_result["data"]["organization"]["repositories"]["nodes"][$i]["stargazers"]["totalCount"] . "</span> ";
+          echo "<span><i class=\"fa fa-code-fork\" aria-hidden=\"true\"></i>" . $api_result["data"]["organization"]["repositories"]["nodes"][$i]["forks"]["totalCount"] . "</span> ";
           echo "<p>" . $api_result["data"]["organization"]["repositories"]["nodes"][$i]["description"] . "</p>";
         echo "</div><hr>";
       }
