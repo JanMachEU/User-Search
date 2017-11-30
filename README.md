@@ -21,7 +21,7 @@
 ## Instalation
   1. Download / clone this repository
   1. Extract it to where ever on server you want (as long as it will accessible from the internet and you will know URL to it)
-  1. Open `ADDRESS_BASED_ON_WHERE_YOU_EXTRACTED_IT/install.php` in browser
+  1. Open `install.php` in browser
   1. Follow the steps in installer
   
 ## Permissions
